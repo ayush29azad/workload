@@ -1,23 +1,23 @@
-
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-python
+  name: helloworld-deployment
+  labels:
+    app: helloworld
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: hello-python
-  replicas: 3
+      app: helloworld
   template:
     metadata:
       labels:
-        app: hello-python
+        app: helloworld
     spec:
       containers:
-      - name: hello-python
+      - name: helloworld
         image: ayush29azad/xyz
+        # Use docker image app name from docker hub 
         ports:
-        - containerPort: 5000 
-
-
-
+        - containerPort: 80
